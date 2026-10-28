@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app>
+
+<head>
+    <title>Input Validation</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js">
+    </script>
+</head>
+
+<body>
+
+    <h2>Login Form</h2>
+
+    <form name="form" novalidate>
+
+        Email:
+        <input type="email" name="email"
+               ng-model="email" required>
+
+        <p ng-show="form.email.$touched && form.email.$invalid">
+            Enter a valid email
+        </p>
+
+        Password:
+        <input type="password" name="password"
+               ng-model="password"
+               ng-minlength="6"
+               required>
+
+        <p ng-show="form.password.$touched && form.password.$invalid">
+            Password must contain 6 characters
+        </p>
+
+        <br>
+
+        <button ng-disabled="form.$invalid">
+            Login
+        </button>
+
+    </form>
+
+</body>
+</html>
